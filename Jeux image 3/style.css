@@ -1,0 +1,128 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-emphasis: center;
+    background-color: #022535;
+}
+
+.container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    height: 200px;
+    gap: 16px;
+    transition: 0.3s;
+}
+
+.container li{
+    position: relative;
+    overflow: hidden;
+    flex: 0 0 80px;
+    border-radius: 50px;
+    cursor: pointer;
+    border-radius: 10px;
+    border: 1.2px solid #eee;
+    box-shadow: 5px 10px 15px rgba(255, 255, 255, 0.4), -2px -5px 10px rgba(255, 255, 255, 0.1);
+}
+
+.container li img{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.container li,
+.container li img
+{
+    transition: 0.3s;
+}
+
+.container li .content{
+    transition: 1.5s ease;
+}
+
+.container span{
+    text-align: center;
+    width: 75%;
+}
+
+.container h2{
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 4px;
+    margin-bottom: 3px;
+    white-space: nowrap;
+    color: #eee;
+}
+
+.container p{
+    color: #ddd;
+    font-size: 10px;
+    width: 100%;
+}
+
+.container li .content{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+    color: #fff;
+    padding: 15px;
+    background:
+    linear-gradient(0deg, rgb(0 0 0 / 70%) 10%,
+     rgb(255 255 255 / 0%) 100% 
+     );
+    opacity: 0;
+    visibility: hidden;
+}
+
+.container:hover{
+        gap: 0;
+}
+
+.container li .content span{
+    position: absolute;
+    z-index: 3;
+    left: 50%;
+    bottom: 0px;
+    translate: -50%;
+    scale: 0.8s;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.container li:hover{
+    flex: 0 1 260px;
+    scale: 1.1;
+    z-index: 10;
+    opacity: 1;
+}
+.container li img{
+
+}
+.container li:hover .content{
+    opacity: 1;
+    visibility: visible;
+}
+
+.container li:hover span{
+    scale: 1;
+    opacity: 1;
+
+    visibility: visible;
+}
