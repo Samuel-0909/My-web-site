@@ -20,11 +20,11 @@ document.addEventListener("DOMContentLoaded", function() {
     //text typping effect
 
     const texts=[
-        "Frontend Develloper",
-        "Ir",
-        "UI/UX Designer",
-        "Web consultant",
-        "Mobile Develloper"   
+        " Frontend Develloper",
+        " Ir",
+        " UI/UX Designer",
+        " Web consultant",
+        " Mobile Develloper"   
     ];
     let textIndex=0;
     let charIndex=0;

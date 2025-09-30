@@ -426,13 +426,13 @@ p{
 
 .list-apropos {
   text-align: left;
-  padding: 15px;
+  padding: 10px;
 }
 
 
 .text-apropos {
   text-align: justify;
-  padding: 15px;
+  padding: 6px;
 }
 
 .list-apropos .fa-code {
@@ -441,8 +441,8 @@ p{
 }
 
 .list-apropos p {
-  margin: 10px;
-  line-height: 1.5;
+  margin: 4px;
+  line-height: 1.4;
 }
 
 .list-apropos ul {
@@ -487,7 +487,7 @@ p{
 /* === Project === */
 
 .project {
-  padding: 15px 15px;
+  padding: 40px 18px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -658,7 +658,7 @@ p{
 }
 
 .skill-card{
-  padding: 2rem;
+  padding: 1.5rem;
   border-radius: 15px;
   background: rgba(255, 255, 255, 0.08);
   transition: all 0.3s ease;
@@ -681,8 +681,8 @@ p{
 /* ==== Contact ====*/
 
 .contact {
-  padding: 20px 15px;
-  margin: 20px 15px;
+  padding: 10px 15px;
+  margin: 10px 15px;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -692,14 +692,14 @@ p{
 }
 
 .contact h1 {
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   color: linear-gradient(90deg, #e6e9f0 0%, #2afc85 100%);
 }
 
 .contact p {
-  margin: 10px;
+  margin: 8px;
   line-height: 1.5;
   margin-bottom: 20px;
 }
@@ -723,7 +723,7 @@ form:hover{
 }
 
 form label {
-  margin-top: 15px;
+  margin-top: 10px;
   font-weight: bold;
 }
 
@@ -974,8 +974,8 @@ footer{
     height: 200px;
   }
   .apropos {
-    padding: 30px 15px;
-    margin: 10px 10px;
+    padding: 40px 20px;
+    margin: 20px 20px;
   }
   .apropos-contenu {
     grid-template-columns: 1fr;
