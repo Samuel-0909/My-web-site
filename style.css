@@ -583,6 +583,7 @@ p{
 
 .project-content .project-des {
   margin-top: 10px;
+  cursor: pointer;
   margin-bottom: 20px;
   opacity: 0;
   animation: animate 1s ease-in-out 0.3s 1 forwards;
@@ -973,12 +974,12 @@ footer{
     height: 200px;
   }
   .apropos {
-    padding: 40px 15px;
-    margin: 20px 20px;
+    padding: 30px 15px;
+    margin: 10px 10px;
   }
   .apropos-contenu {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 5px;
   }
 
   .list-apropos {
@@ -1028,16 +1029,29 @@ footer{
   }
 
    .project-content .project-name {
-    font-size: 1.5rem; 
+    font-size: 0.8rem; 
   }
 
   .project-content .project-des {
-    font-size: 1rem; 
+    font-size: 0.6rem; 
   }
 
   .project-content button {
     padding: 8px 15px; 
-    font-size: 0.9rem; 
+    font-size: 0.5rem; 
+  }
+
+  .contact{
+    padding: 6px 10px; 
+    font-size: 0.8rem; 
+  }
+
+  form input, form textarea {
+    width: 100%;
+    font-size: 0.6rem;
+  }
+  form button {
+    width: 100%;
   }
   
 }
