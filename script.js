@@ -1,36 +1,78 @@
-// Gestion du menu mobile (Burger Menu)
+// Theme: light / dark with localStorage
+const root = document.documentElement;
+const themeToggle = document.querySelector("#theme-toggle");
+
+function getPreferredTheme() {
+  const stored = localStorage.getItem("theme");
+  if (stored === "light" || stored === "dark") return stored;
+  return window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
+}
+
+function applyTheme(theme) {
+  root.setAttribute("data-theme", theme);
+  localStorage.setItem("theme", theme);
+  if (themeToggle) {
+    const next = theme === "dark" ? "light" : "dark";
+    themeToggle.setAttribute("aria-label", `Switch to ${next} theme`);
+    themeToggle.setAttribute("title", `Switch to ${next} theme`);
+  }
+}
+
+applyTheme(getPreferredTheme());
+
+if (themeToggle) {
+  themeToggle.addEventListener("click", () => {
+    const current = root.getAttribute("data-theme") || "light";
+    applyTheme(current === "dark" ? "light" : "dark");
+  });
+}
+
+// Mobile menu
 const menu = document.querySelector("#mobile-menu");
 const menuLinks = document.querySelector(".nav-links");
 
-menu.addEventListener("click", function () {
-  menu.classList.toggle("is-active");
-  menuLinks.classList.toggle("active");
-});
-
-// Fermer le menu mobile lorsqu'on clique sur un lien
-document.querySelectorAll(".nav-links a").forEach((link) => {
-  link.addEventListener("click", () => {
-    menu.classList.remove("is-active");
-    menuLinks.classList.remove("active");
+if (menu && menuLinks) {
+  menu.addEventListener("click", () => {
+    const isOpen = menu.classList.toggle("is-active");
+    menuLinks.classList.toggle("active");
+    menu.setAttribute("aria-expanded", String(isOpen));
+    menu.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
   });
-});
 
-// Intercepter la soumission du formulaire de contact
-// const contactForm = document.querySelector("#contact-form");
+  document.querySelectorAll(".nav-links a").forEach((link) => {
+    link.addEventListener("click", () => {
+      menu.classList.remove("is-active");
+      menuLinks.classList.remove("active");
+      menu.setAttribute("aria-expanded", "false");
+      menu.setAttribute("aria-label", "Open menu");
+    });
+  });
+}
 
-// contactForm.addEventListener("submit", function (e) {
-//   e.preventDefault(); // Empêche le rechargement de la page
+// Scroll reveals (respect reduced motion)
+const prefersReducedMotion = window.matchMedia(
+  "(prefers-reduced-motion: reduce)",
+).matches;
 
-//   // Récupération des valeurs
-//   const name = document.querySelector("#name").value;
-//   const email = document.querySelector("#email").value;
-//   const message = document.querySelector("#message").value;
+if (!prefersReducedMotion) {
+  const revealEls = document.querySelectorAll(".reveal:not(.hero-reveal)");
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.12, rootMargin: "0px 0px -40px 0px" },
+  );
 
-//   // Exemple simple de retour utilisateur
-//   alert(
-//     `Merci pour votre message, ${name} ! (Simulation d'envoi réussie pour ${email})`,
-//   );
-
-//   // Réinitialiser le formulaire
-//   contactForm.reset();
-// });
+  revealEls.forEach((el) => observer.observe(el));
+} else {
+  document.querySelectorAll(".reveal").forEach((el) => {
+    el.classList.add("is-visible");
+  });
+}
